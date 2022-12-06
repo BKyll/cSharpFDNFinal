@@ -7,17 +7,21 @@ using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Reflection;
+using System.Security.Principal;
 
-struct Item
+class Item
 {
-    public string itemID;
-    public string itemDesc;
-    public double itemPrice; // price to user
-    public int itemQuantity; // number in stock
-    public double itemCost; // price to us
-    public double itemValue; // quantity * cost
+    public string itemID = "ITM100";
+    public string itemDesc = "";
+    public double itemPrice = 0.0; // price to user
+    public int itemQuantity = 0; // number in stock
+    public double itemCost = 0.0; // price to us
+    public double itemValue = 0.0 ; // quantity * cost
 
-    public static string nextItemID = "ABC100";
+    /*public void Print()
+    {
+        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}{6,-10}", itemID, itemDesc, itemPrice, itemQuantity, itemCost, itemValue);
+    }*/
 }
 
 class Program
@@ -25,8 +29,7 @@ class Program
     public static void Main()
     {
         int itemIDNo = 100;
-        int currentItem = itemIDNo-100;
-        string itemIDStr = "ITM" + itemIDNo.ToString();
+        int currentIDLocation = itemIDNo - 100;
 
         var items = new Item[100];
 
@@ -38,14 +41,13 @@ class Program
             // Change an item
             // Delete an item
             // List all items
-            // List items ordered by user
             // Quit
+            Console.Clear();
             Console.WriteLine("1. Add an item");
             Console.WriteLine("2. Change an item");
             Console.WriteLine("3. Delete an item");
             Console.WriteLine("4. List all items");
-            Console.WriteLine("5. List items ordered by user");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("5. Quit");
             Console.WriteLine("What would you like to do?");
             string menuChoice = Console.ReadLine();
 
@@ -55,54 +57,64 @@ class Program
                 case "1":
                     {
                         // Add an item
-                        itemIDStr = "ITM" + itemIDNo.ToString();
-                        currentItem = itemIDNo - 100;
+                        currentIDLocation = itemIDNo - 100;
 
-                        Console.Write("Item description: ");
-                        var inputDesc = Console.ReadLine();
-                        while (inputDesc == "")
-                        {
-                            Console.Write("Item description can't be blank: ");
-                            inputDesc = Console.ReadLine();
-                        }
+                        items[currentIDLocation] = new Item();
 
-                        Console.Write("Item Price: ");
-                        string inputPriceStr = Console.ReadLine();
-                        double inputPrice = double.Parse(inputPriceStr);
+                        items[currentIDLocation].itemID = "ITM" + itemIDNo.ToString();
 
-                        // TODO: Always add the pet at the end of the array
-                        items[currentItem].itemID = itemIDStr;
-                        items[currentItem].itemDesc = inputDesc;
+                        Console.Write("Enter an item description:");
+                        items[currentIDLocation].itemDesc = Console.ReadLine();
+
+                        Console.Write("Enter the sale price of the item: ");
+                        items[currentIDLocation].itemPrice = double.Parse(Console.ReadLine());
+
+                        Console.Write("Enter the number of items in inventory: ");
+                        items[currentIDLocation].itemQuantity = int.Parse(Console.ReadLine());
+
+                        Console.Write("Enter the cost of the item: ");
+                        items[currentIDLocation].itemCost = double.Parse(Console.ReadLine());
+
+                        items[currentIDLocation].itemValue = items[currentIDLocation].itemCost * items[currentIDLocation].itemQuantity;
 
                         itemIDNo++;
+
                         break;
                     }
                 case "2":
                     {
                         // Change an item
+                        Console.WriteLine("What item would you like to change?");
+                        // list all items.
+                        // take item id no
+                        // print specified item number
+                        // ask what aspect to change
+                        // Update item with new changes
                         break;
                     }
                 case "3":
                     {
                         // Delete an item
+                        //List all items
+                        // Ask which to delete
+                        // Remove item from list
                         break;
                     }
                 case "4":
                     {
                         // List all items
-                        Console.WriteLine("|{0,5}|{1,5}|{2,5}|{3,5}|", items);
-                        foreach (var item in items)
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", "ID", "Desc", "Price", "Quan", "Cost", "Value");
+                        foreach (var i in items)
                         {
-                            Console.WriteLine();
+                            if (i != null)
+                            {
+                                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", i.itemID, i.itemDesc, i.itemPrice, i.itemQuantity, i.itemCost, i.itemValue);
+                            }
                         }
+                        Console.ReadLine();
                         break;
                     }
                 case "5":
-                    {
-                        // List items ordered by users
-                        break;
-                    }
-                case "6":
                     {
                         // Quit
                         keepGoing = false;

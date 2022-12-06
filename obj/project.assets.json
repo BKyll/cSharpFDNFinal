@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repos\\csharpfoundation\\csharpFoundation_Final\\csharpFoundation_Final.csproj",
+      "projectUniqueName": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
       "projectName": "csharpFoundation_Final",
-      "projectPath": "C:\\repos\\csharpfoundation\\csharpFoundation_Final\\csharpFoundation_Final.csproj",
+      "projectPath": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
       "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\repos\\csharpfoundation\\csharpFoundation_Final\\obj\\",
+      "outputPath": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
