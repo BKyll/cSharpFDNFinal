@@ -18,10 +18,7 @@ class Item
     public double itemCost = 0.0; // price to us
     public double itemValue = 0.0 ; // quantity * cost
 
-    /*public void Print()
-    {
-        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}{6,-10}", itemID, itemDesc, itemPrice, itemQuantity, itemCost, itemValue);
-    }*/
+
 }
 
 class Program
@@ -84,33 +81,67 @@ class Program
                 case "2":
                     {
                         // Change an item
-                        Console.WriteLine("What item would you like to change?");
                         // list all items.
+                        Print(items);
                         // take item id no
+                        Console.WriteLine("What item would you like to change? (enter the number in the item ID)");
+                        int idChoice = int.Parse(Console.ReadLine()) - 100;
                         // print specified item number
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", items[idChoice].itemID, items[idChoice].itemDesc, items[idChoice].itemPrice, items[idChoice].itemQuantity, items[idChoice].itemCost, items[idChoice].itemValue);
                         // ask what aspect to change
+                        Console.WriteLine("Which value would you like to change?");
+                        Console.WriteLine("1) Description 2) Price 3) Quantity 4) Cost");
+                        string choice = Console.ReadLine();
                         // Update item with new changes
+                        switch (choice)
+                        {
+                            case "1":
+                                {
+                                    Console.WriteLine("Enter a new description: ");
+                                    items[idChoice].itemDesc = Console.ReadLine();
+                                    break;
+                                }
+                            case "2":
+                                {
+                                    Console.WriteLine("Enter a new price: ");
+                                    items[idChoice].itemPrice = int.Parse(Console.ReadLine());
+                                    break;
+                                }
+                            case "3":
+                                {
+                                    Console.WriteLine("Enter a new quantity: ");
+                                    items[idChoice].itemQuantity = int.Parse(Console.ReadLine());
+                                    break;
+                                }
+                            case "4":
+                                {
+                                    Console.WriteLine("Enter a new cost: ");
+                                    items[idChoice].itemCost = int.Parse(Console.ReadLine());
+                                    break;
+                                }
+                            default:
+                                break;
+                        }
                         break;
                     }
                 case "3":
                     {
                         // Delete an item
-                        //List all items
+                        // List all items
+                        Print(items);
                         // Ask which to delete
+                        Console.WriteLine("What item would you like to change? (enter the number in the item ID)");
+                        int idChoice = int.Parse(Console.ReadLine()) - 100;
+                        // print specified item number
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", items[idChoice].itemID, items[idChoice].itemDesc, items[idChoice].itemPrice, items[idChoice].itemQuantity, items[idChoice].itemCost, items[idChoice].itemValue);
                         // Remove item from list
+                        // Do I need to change this whole thing to a list?
                         break;
                     }
                 case "4":
                     {
                         // List all items
-                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", "ID", "Desc", "Price", "Quan", "Cost", "Value");
-                        foreach (var i in items)
-                        {
-                            if (i != null)
-                            {
-                                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", i.itemID, i.itemDesc, i.itemPrice, i.itemQuantity, i.itemCost, i.itemValue);
-                            }
-                        }
+                        Print(items);
                         Console.ReadLine();
                         break;
                     }
@@ -127,5 +158,17 @@ class Program
             }
         }
         Console.ReadLine();
+    }
+
+    public static void Print(Item[] array)
+    {
+        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", "ID", "Desc", "Price", "Quan", "Cost", "Value");
+        foreach (var i in array)
+        {
+            if (i != null)
+            {
+                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", i.itemID, i.itemDesc, i.itemPrice, i.itemQuantity, i.itemCost, i.itemValue);
+            }
+        }
     }
 }
