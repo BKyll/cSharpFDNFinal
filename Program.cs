@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Reflection;
 using System.Security.Principal;
+using System.Runtime.CompilerServices;
 
 class Item
 {
@@ -17,8 +18,6 @@ class Item
     public int itemQuantity = 0; // number in stock
     public double itemCost = 0.0; // price to us
     public double itemValue = 0.0 ; // quantity * cost
-
-
 }
 
 class Program
@@ -52,8 +51,10 @@ class Program
             switch (menuChoice)
             {
                 case "1":
+                case "a":
+                case "A":
                     {
-                        // Add an item
+                        // ADD AN ITEM
                         currentIDLocation = itemIDNo - 100;
 
                         items[currentIDLocation] = new Item();
@@ -79,8 +80,10 @@ class Program
                         break;
                     }
                 case "2":
+                case "c":
+                case "C":
                     {
-                        // Change an item
+                        // CHANGE AN ITEM
                         // list all items.
                         Print(items);
                         // take item id no
@@ -125,8 +128,10 @@ class Program
                         break;
                     }
                 case "3":
+                case "d":
+                case "D":
                     {
-                        // Delete an item
+                        // DELETE AN ITEM
                         // List all items
                         Print(items);
                         // Ask which to delete
@@ -135,19 +140,49 @@ class Program
                         // print specified item number
                         Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", items[idChoice].itemID, items[idChoice].itemDesc, items[idChoice].itemPrice, items[idChoice].itemQuantity, items[idChoice].itemCost, items[idChoice].itemValue);
                         // Remove item from list
-                        // Do I need to change this whole thing to a list?
+                        Console.WriteLine("Delete this item from the list? y/n");
+                        string delChoice = Console.ReadLine();
+
+                        switch (delChoice)
+                        {
+                            case "y":
+                            case "Y":
+                                {
+                                    for (int d = idChoice; d < items.Length; d++)
+                                    {
+                                        if (items[d] != null)
+                                        {
+                                            items[d] = items[d + 1];
+                                        }
+                                    }
+                                    break;
+                                }
+                            case "n":
+                            case "N":
+                            default:
+                                {
+                                    break;
+                                }
+                        }
+
+                        Print(items);
+                        Console.ReadLine();
                         break;
                     }
                 case "4":
+                case "l":
+                case "L":
                     {
-                        // List all items
+                        // LIST ALL ITEMS
                         Print(items);
                         Console.ReadLine();
                         break;
                     }
                 case "5":
+                case "q":
+                case "Q":
                     {
-                        // Quit
+                        // QUIT
                         keepGoing = false;
                         break;
                     }
@@ -157,18 +192,21 @@ class Program
                     }
             }
         }
-        Console.ReadLine();
     }
 
     public static void Print(Item[] array)
     {
-        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", "ID", "Desc", "Price", "Quan", "Cost", "Value");
+        Console.Clear();
+        Console.WriteLine("__________________________________________________________________________________");
+        Console.WriteLine("|{0,-10}|{1,-25}|{2,-10}|{3,-10}|{4,-10}|{5,-10}|", "ID", "Description", "Price", "Quantity", "Cost", "Value");
+        Console.WriteLine("----------------------------------------------------------------------------------");
         foreach (var i in array)
         {
             if (i != null)
             {
-                Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}{5,-10}", i.itemID, i.itemDesc, i.itemPrice, i.itemQuantity, i.itemCost, i.itemValue);
+                Console.WriteLine("|{0,-10}|{1,-25}|{2,-10:C}|{3,-10}|{4,-10:C}|{5,-10:C}|", i.itemID, i.itemDesc, i.itemPrice, i.itemQuantity, i.itemCost, i.itemValue);
             }
         }
+        Console.WriteLine("__________________________________________________________________________________");
     }
 }
