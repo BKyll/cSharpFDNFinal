@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brkyllo\\Source\\Repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj": {}
+    "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brkyllo\\Source\\Repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj": {
+    "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brkyllo\\Source\\Repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
+        "projectUniqueName": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
         "projectName": "csharpFoundation_Final",
-        "projectPath": "C:\\Users\\brkyllo\\Source\\Repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
-        "packagesPath": "C:\\Users\\brkyllo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brkyllo\\Source\\Repos\\cSharpFDNFinal\\obj\\",
+        "projectPath": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\csharpFoundation_Final.csproj",
+        "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bryan\\source\\repos\\cSharpFDNFinal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\brkyllo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/discord-net/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -56,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
